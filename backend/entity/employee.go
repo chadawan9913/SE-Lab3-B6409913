@@ -5,15 +5,10 @@ import (
 	"time"
 )
 
-type BaseModel struct {
-	CreatedAt time.Time  		 	`json:"-"`
-	UpdatedAt time.Time				`json:"-"`
-	DeletedAt gorm.DeletedAt 		`gorm:"index" json:"-"`
-}
 
 
 type Employee struct {
-	BaseModel
+	gorm.Model
 	FirstName string	`gorm:"default:Employee" `
 	LastName string		`gorm:"default:Employee" `
 	Email string		`valid:"required~Email is required,email~Invalid email" gorm:"unique" `

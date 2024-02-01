@@ -5,8 +5,8 @@ import (
 	"time"
 	"fmt"
 	"github.com/asaskevich/govalidator"
-	"github.com/onsi/gomega"
-	"github.com/chadawan9913/SE-Lab3-B6409913/backend/entity"
+	."github.com/onsi/gomega"
+	"github.com/chadawan9913/SE-Lab3-B6409913/entity"
 	
 )
 
@@ -40,7 +40,7 @@ func TestEmployeeValidation(t *testing.T){
 		ok, err := govalidator.ValidatorStruct(employee)
 		g.expect(ok).NotTo(gomega.BeTrue())
 		g.expect(err).NotTo(gomega.BeNil())
-		g.expect(err.Err()).To(Equal(fmt.sprintf("Phone %s dose not as stringlength(10|10)",employee.Phone)))
+		g.expect(err.Err()).To(Equal(fmt.sprintf("Phone: %s dose not as stringlength(10|10)",employee.Phone)))
 	})
 
 	
